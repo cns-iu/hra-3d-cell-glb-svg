@@ -1,0 +1,37 @@
+# =============================================================================
+# HRA (Organ Gallery VR) Configuration
+# =============================================================================
+
+organ:
+  name: heart
+  sex: male
+  side: 
+  glb_filename:
+
+apis:
+  reference_organs: https://apps.humanatlas.io/api--staging/v1/reference-organs
+  hra_pop: https://apps.humanatlas.io/api/grlc/hra-pop/cell_types_in_anatomical_structurescts_per_as
+  hra_pop_sparql: https://lod.humanatlas.io/sparql
+  cell_generation: https://apps.humanatlas.io/api/v1/mesh-3d-cell-population
+  cell_hierarchy: https://docs.google.com/spreadsheets/d/10kV3beiTLrMFoDHN0pGYyJ2GounIF1Du7LaaP3PHqdo/export?format=csv&gid=1351060716
+
+filters:
+  tool: azimuth
+  modality: ""
+
+markers:
+  num_nodes: 10000
+  shape: sphere
+  sphere_radius: 0.00025
+  sphere_subdivisions: 1
+  size: null
+
+visualization:
+  organ_alpha: 25
+
+# Paths below are relative to CWD, not this file - setup_and_run.py
+# chdirs into HRA/ first, so run scripts from inside HRA/ if invoking by hand.
+output:
+  organs_folder: outputs/downloaded organs
+  amended_folder: outputs/annotated organs
+  save_hra_pop_csv: true

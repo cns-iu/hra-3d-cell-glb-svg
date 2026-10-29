@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "organ": "heart",
+    "sex": "male",
+    "tool": "azimuth",
+    "uberon_id": "UBERON_0000948",
+    "glb_filename": "3d-vh-m-heart.glb",
+    "generated_at": "2026-09-04T14:24:52.803531Z"
+  },
+  "organ_total_cell_count": {
+    "organ": "heart",
+    "total_cells": 7500000000,
+    "notes": "The human heart contains an estimated 2-3 billion cardiac muscle cells, but these account for less than a third of the total cell number in the heart.",
+    "source": "Cell Communications in the Heart",
+    "doi": "10.1161/CIRCULATIONAHA.108.847731"
+  },
+  "cell_type_color_key": {
+    "cell type": [
+      "Ventricular cardiomyocyte",
+      "fibroblast",
+      "capillary endothelial cell",
+      "B cell",
+      "pericyte",
+      "monocyte-derived dendritic cell",
+      "macrophage",
+      "endothelial cell of artery",
+      "smooth muscle cell",
+      "Other"
+    ],
+    "colors": {
+      "Ventricular cardiomyocyte": "#767070",
+      "fibroblast": "#2387ca",
+      "capillary endothelial cell": "#ce1819",
+      "B cell": "#f61210",
+      "pericyte": "#7abce8",
+      "monocyte-derived dendritic cell": "#fa7574",
+      "macrophage": "#fdd8d8",
+      "endothelial cell of artery": "#f39999",
+      "smooth muscle cell": "#ebeaea",
+      "Other": "#C08552"
+    }
+  },
+  "anatomical_structures": [
+    {
+      "name": "right cardiac atrium",
+      "glb_node": [
+        "VH_M_right_cardiac_atrium"
+      ],
+      "hra_pop_cell_count": 29381,
+      "allocated_markers": 332,
+      "plotted": 321
+    },
+    {
+      "name": "left cardiac atrium",
+      "glb_node": [
+        "VH_M_left_cardiac_atrium"
+      ],
+      "hra_pop_cell_count": 44841,
+      "allocated_markers": 507,
+      "plotted": 498
+    },
+    {
+      "name": "heart right ventricle",
+      "glb_node": [
+        "VH_M_heart_right_ventricle"
+      ],
+      "hra_pop_cell_count": 76872,
+      "allocated_markers": 869,
+      "plotted": 861
+    },
+    {
+      "name": "heart left ventricle",
+      "glb_node": [
+        "VH_M_heart_left_ventricle"
+      ],
+      "hra_pop_cell_count": 691151,
+      "allocated_markers": 7815,
+      "plotted": 7803
+    },
+    {
+      "name": "interventricular septum",
+      "glb_node": [
+        "VH_M_interventricular_septum"
+      ],
+      "hra_pop_cell_count": 42122,
+      "allocated_markers": 477,
+      "plotted": 468
+    }
+  ],
+  "cell_count_comparison": {
+    "total_plotted": 9951,
+    "total_requested": 10000,
+    "real_cells_per_marker": 753693
+  },
+  "size_reference": {
+    "assumed_cell_size_um": 10.0,
+    "marker_radius_um": 250.0,
+    "marker_diameter_um": 500.0,
+    "marker_size_ratio": "500μm|10μm",
+    "marker_scale_factor": 50.0,
+    "note": "All cell types assumed to be 10 µm in diameter. Markers are rendered far larger than true biological scale for VR visibility — marker_scale_factor is how many times larger than a real cell each marker is (marker_diameter_um / assumed_cell_size_um)."
+  }
+}

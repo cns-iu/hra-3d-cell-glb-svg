@@ -1,0 +1,34 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# A5 is not part of this repo
+A5/
+
+# Only a few sample organs are committed for now
+HRA/outputs/annotated organs/*
+!HRA/outputs/annotated organs/heart/
+!HRA/outputs/annotated organs/kidney/
+!HRA/outputs/annotated organs/lung/
+!HRA/outputs/annotated organs/liver/
+
+# Reference organ meshes (re-downloaded by stage 10)
+HRA/outputs/downloaded organs/
+
+# Scratch / raw files written by the pipeline (the per-tool
+# *-hra-pop_distribution.json files are the real outputs and are kept)
+HRA/outputs/annotated organs/**/hra_pop_raw.csv
+HRA/outputs/annotated organs/**/*_distribution.json
+!HRA/outputs/annotated organs/**/*-hra-pop_distribution.json
+
+# data/: HRA only needs the two files below
+data/*
+!data/hra_pop_raw.csv
+!data/Supertree_colors_all_organs_A5.xlsx
