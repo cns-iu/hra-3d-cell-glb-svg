@@ -38,7 +38,8 @@ The distribution JSON is always generated; `--glbs`, `--pngs`, `--svgs` (or `--a
 ```
 HRA/outputs/
 ├── downloaded organs/            reference organ GLBs (not committed)
-└── annotated organs/<organ>/
+├── glb report.csv                triangle count for every generated GLB
+└── <organ>/
     ├── glb/                      GLB with cell markers
     ├── csv/                      per-marker position, cell type, cell ID, color
     ├── json/                     distribution data and legend metadata
@@ -66,7 +67,7 @@ File names: `<organ stem>-<uberon>-all-as-<tool>-sphere-hra-pop.<ext>`, e.g. `3d
 
 ## Sample outputs
 
-`HRA/outputs/annotated organs/` contains only heart, kidney, lung and liver for now, as examples of the chart layout and colors.
+`HRA/outputs/` contains only heart, kidney, lung and liver for now, as examples of the chart layout and colors.
 
 ## Data
 

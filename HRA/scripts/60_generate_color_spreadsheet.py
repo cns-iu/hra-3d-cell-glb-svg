@@ -6,7 +6,7 @@ project's pipeline has processed so far.
 
 Unlike scripts 10-50, this stage isn't scoped to the single organ named in
 config.yaml, it rescans every distribution JSON already on disk under
-outputs/annotated organs/*/json/*_distribution.json (one per organ/sex/tool
+outputs/*/json/*_distribution.json (one per organ/sex/tool
 run through 20_fetch_cell_distribution.py) and recomputes each one's
 top-9-granular + Other color scheme with THIS project's palette, so the
 spreadsheet always reflects exactly what 30/40/50 actually rendered for
@@ -14,7 +14,7 @@ every organ processed to date. Running the pipeline for a new organ and
 re-running this stage grows the spreadsheet by one more (Organ, Sex, Tool)
 block, nothing needs to be re-entered by hand.
 
-Reads:  outputs/annotated organs/<organ>/json/<stem>_distribution.json  (one per organ/sex/tool run through script 20)
+Reads:  outputs/<organ>/json/<stem>_distribution.json  (one per organ/sex/tool run through script 20)
 Writes: outputs/Supertree_colors_all_organs_HRA.xlsx
 """
 

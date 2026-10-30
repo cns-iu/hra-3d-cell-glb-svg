@@ -8,7 +8,7 @@ as JSON for use by script 30.
 Reads:  config.yaml
         outputs/downloaded organs/<glb_filename>  (to extract GLB node names)
         <cell_hierarchy CSV>                       (supertree for mapping)
-Writes: outputs/annotated organs/<organ>/json/<stem>_distribution.json
+Writes: outputs/<organ>/json/<stem>_distribution.json
 """
 
 from __future__ import annotations

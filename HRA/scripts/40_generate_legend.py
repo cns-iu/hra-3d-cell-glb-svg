@@ -3,9 +3,9 @@
 40_generate_legend.py: Generate a companion JSON legend file for the GLB output.
 
 Reads:  config.yaml
-        outputs/annotated organs/<organ>/json/<stem>_distribution.json
-        outputs/annotated organs/<organ>/csv/<stem>-<uberon>-all-as-<tool>-<shape>-hra-pop.csv
-Writes: outputs/annotated organs/<organ>/json/<stem>-<uberon>-all-as-<tool>-<shape>-hra-pop_legend.json
+        outputs/<organ>/json/<stem>_distribution.json
+        outputs/<organ>/csv/<stem>-<uberon>-all-as-<tool>-<shape>-hra-pop.csv
+Writes: outputs/<organ>/json/<stem>-<uberon>-all-as-<tool>-<shape>-hra-pop_legend.json
 """
 
 from __future__ import annotations

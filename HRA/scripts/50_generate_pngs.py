@@ -22,9 +22,9 @@ plus one aggregate "Other". Palette itself lives in HRA/scripts/palette.py
 (brighter/more saturated than A5's, chosen for legibility on dark bg).
 
 Reads:  config.yaml
-        outputs/annotated organs/<organ>/json/<stem>_distribution.json
-Writes: outputs/annotated organs/<organ>/png/with-legend/<output_name>-with-legend.png
-        outputs/annotated organs/<organ>/png/without-legend/<output_name>-without-legend.png
+        outputs/<organ>/json/<stem>_distribution.json
+Writes: outputs/<organ>/png/with-legend/<output_name>-with-legend.png
+        outputs/<organ>/png/without-legend/<output_name>-without-legend.png
 
 Requires: plotly, kaleido
     pip install plotly kaleido

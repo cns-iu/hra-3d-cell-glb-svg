@@ -12,10 +12,10 @@ system font on import (install Nunito locally for Illustrator).
 Browsers render the embedded fonts correctly.
 
 Reads:  config.yaml
-        outputs/annotated organs/<organ>/json/<stem>_distribution.json
+        outputs/<organ>/json/<stem>_distribution.json
         fonts/Nunito-VariableFont_wght.ttf
-Writes: outputs/annotated organs/<organ>/svg/with-legend/<output_name>-with-legend.svg
-        outputs/annotated organs/<organ>/svg/without-legend/<output_name>-without-legend.svg
+Writes: outputs/<organ>/svg/with-legend/<output_name>-with-legend.svg
+        outputs/<organ>/svg/without-legend/<output_name>-without-legend.svg
 
 Requires: plotly, kaleido
     pip install plotly kaleido

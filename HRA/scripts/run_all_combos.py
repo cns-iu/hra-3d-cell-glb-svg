@@ -17,7 +17,7 @@ config.yaml is never modified: the config is overridden in memory per combo
 fetched once, live, and reused for every combination. Top cell types with no
 supertree match fall back to OTHER_COLOR instead of crashing stage 30.
 
-Writes under outputs/annotated organs/<organ>/ (output_name =
+Writes under outputs/<organ>/ (output_name =
 <stem>-<uberon>-all-as-<tool>-sphere-hra-pop):
     json/<output_name>_distribution.json
     glb/<output_name>.glb            (--glbs)

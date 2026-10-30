@@ -4,10 +4,10 @@
 of the organ GLB using the HRA 3D Cell Generation API, then export the enriched GLB.
 
 Reads:  config.yaml
-        outputs/annotated organs/<organ>/json/<stem>_distribution.json  (from script 20)
+        outputs/<organ>/json/<stem>_distribution.json  (from script 20)
         outputs/downloaded organs/<glb_filename>                        (from script 10)
-Writes: outputs/annotated organs/<organ>/glb/<stem>-<uberon>-all-as-<tool>-<shape>-hra-pop.glb
-        outputs/annotated organs/<organ>/csv/<stem>-<uberon>-all-as-<tool>-<shape>-hra-pop.csv
+Writes: outputs/<organ>/glb/<stem>-<uberon>-all-as-<tool>-<shape>-hra-pop.glb
+        outputs/<organ>/csv/<stem>-<uberon>-all-as-<tool>-<shape>-hra-pop.csv
 """
 
 from __future__ import annotations
@@ -319,6 +319,38 @@ def make_marker_mesh(
 # Output
 # =============================================================================
 
+GLB_REPORT_NAME = "glb report.csv"
+GLB_REPORT_COLUMNS = ["glb_file", "organ", "sex", "tool", "triangles", "over_1m_triangles", "size_mb"]
+
+
+def update_glb_report(glb_path: Path, organ: str, sex: str, tool: str, report_path: Path) -> int:
+    """Count triangles in the finished GLB and add/refresh its row in the
+    single outputs/glb report.csv (one row per GLB file). Returns the count."""
+    loaded = trimesh.load(glb_path, force="scene")
+    triangles = sum(len(g.faces) for g in loaded.geometry.values() if isinstance(g, trimesh.Trimesh))
+    row = {
+        "glb_file": f"{organ.lower()}/glb/{glb_path.name}",
+        "organ": organ,
+        "sex": sex,
+        "tool": tool,
+        "triangles": triangles,
+        "over_1m_triangles": "yes" if triangles > 1_000_000 else "no",
+        "size_mb": round(glb_path.stat().st_size / 1_048_576, 1),
+    }
+    rows: Dict[str, dict] = {}
+    if report_path.exists():
+        with open(report_path, newline="", encoding="utf-8") as f:
+            rows = {r["glb_file"]: r for r in csv.DictReader(f)}
+    rows[row["glb_file"]] = row
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(report_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=GLB_REPORT_COLUMNS)
+        writer.writeheader()
+        writer.writerows(sorted(rows.values(), key=lambda r: r["glb_file"]))
+    print(f"GLB report updated: {report_path} ({triangles:,} triangles)")
+    return triangles
+
+
 def export_glb(scene: trimesh.Scene, output_path: Path) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     exported = scene.export(file_type="glb")
@@ -618,6 +650,11 @@ def main() -> None:
         per_as_cell_node_names=per_as_cell_node_names,
         as_to_glb_node=as_to_glb_node,
         stem=stem,
+    )
+
+    update_glb_report(
+        output_glb, organ_name, organ_sex, config["filters"]["tool"],
+        Path(config["output"]["amended_folder"]) / GLB_REPORT_NAME,
     )
 
     write_nodes_csv(

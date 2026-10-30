@@ -33,5 +33,5 @@ visualization:
 # chdirs into HRA/ first, so run scripts from inside HRA/ if invoking by hand.
 output:
   organs_folder: outputs/downloaded organs
-  amended_folder: outputs/annotated organs
+  amended_folder: outputs
   save_hra_pop_csv: true
